@@ -8,19 +8,27 @@ public class ReadFromFile {
 
         String path = "\\Users\\alexandr.osipov\\Documents\\Tech Help\\Hot keys.txt";
 
-        File file = new File(path);
-        Scanner scanner = new Scanner(file);
-
-        while (scanner.hasNext()) {
-            System.out.println(scanner.nextLine());
+        try {
+            File file = new File(path);
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNext()) {
+                System.out.println(scanner.nextLine());
+            }
+            scanner.close();
+        } catch (Exception e) {
+            System.out.println("Where is this file?");
+            throw new RuntimeException(e);
         }
+    }
+}
 
-        //ввод данных в массив
+
+//ввод данных в массив
 //        String line = scanner.nextLine();
 //        String[] array = line.split(" ");  //разделитель точка ("\\.")
 //        System.out.println(Arrays.toString(array));
 
-        //ввод чисел в массив
+//ввод чисел в массив
 //        String line = scanner.nextLine();
 //        String[] numbersString = line.split(" ");  //разделитель точка ("\\.")
 //        int[] numbers = new int[3];
@@ -29,8 +37,3 @@ public class ReadFromFile {
 //            numbers[counter++] = Integer.parseInt(number);
 //          }
 //            System.out.println(Arrays.toString(numbers));
-
-            scanner.close();
-        }
-    }
-
